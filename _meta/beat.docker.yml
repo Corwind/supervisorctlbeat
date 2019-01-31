@@ -1,0 +1,2 @@
+supervisorctlbeat:
+  period: 1s

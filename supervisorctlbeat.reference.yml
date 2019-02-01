@@ -2,9 +2,27 @@
 
 ############################# Supervisorctlbeat ######################################
 
+seccomp:
+    default_action: errno
+    syscalls:
+        - action: allow
+          names:
+              - execve
+              - execveat
+              - fork
+              - vfork
+              - access
+              - arch_prctl
+              - ppoll
+              - clone
+              - close
+              - connect
+              - dup2
+
 supervisorctlbeat:
   # Defines how often an event is sent to the output
-  period: 1s
+  period: 30s
+  supervisord_config: "/etc/supervisord.conf"
 
 #================================ General ======================================
 
